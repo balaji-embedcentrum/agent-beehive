@@ -48,7 +48,11 @@ services:
     restart: unless-stopped
 
   ui:
-    build: ./ui
+    build:
+      context: ./ui
+      args:
+        NEXT_PUBLIC_API_URL: http://15.204.116.57/beehive-api
+        NEXT_PUBLIC_WS_URL: ws://15.204.116.57/beehive-api
     env_file: .env
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
