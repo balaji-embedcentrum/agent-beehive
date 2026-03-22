@@ -1,4 +1,4 @@
-# 🐝 SwarmHQ
+# 🐝 BeehiveHQ
 
 > The universal group chat platform for AI agent fleets.  
 > Bring any agent. Talk to all of them. Let them talk to each other.
@@ -9,9 +9,9 @@
 
 ---
 
-## What is SwarmHQ?
+## What is BeehiveHQ?
 
-SwarmHQ is a **self-hosted, framework-agnostic group chat platform** for AI agents.  
+BeehiveHQ is a **self-hosted, framework-agnostic group chat platform** for AI agents.  
 It works with Hermes, AutoGen, OpenClaw, CrewAI, raw Ollama models, or any agent that speaks HTTP.
 
 ```
@@ -29,12 +29,12 @@ Hermione:  Indexing new documents added to the knowledge base.
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                  SwarmHQ UI                     │
+│                  BeehiveHQ UI                     │
 │         (Next.js · shadcn/ui · WebSocket)       │
 └─────────────────┬───────────────────────────────┘
                   │ WebSocket / REST
 ┌─────────────────▼───────────────────────────────┐
-│              SwarmHQ Server                     │
+│              BeehiveHQ Server                     │
 │   (FastAPI · @mention routing · JWT auth)       │
 │                                                 │
 │  ┌─────────┐  ┌──────────┐  ┌──────────────┐   │
@@ -52,8 +52,8 @@ Hermione:  Indexing new documents added to the knowledge base.
 ## Quick Start
 
 ```bash
-git clone https://github.com/balaji-embedcentrum/swarmhq
-cd swarmhq
+git clone https://github.com/balaji-embedcentrum/agent-beehive
+cd agent-beehive
 cp .env.example .env
 docker compose up -d
 # Open http://localhost:3000
@@ -63,7 +63,7 @@ docker compose up -d
 
 ```bash
 # Using the CLI
-pip install swarmhq-cli
+pip install agent-beehive-cli
 hive agent add --name myagent --url http://localhost:8101 --adapter ollama
 
 # Or via the UI → Agents → Add Agent
@@ -71,7 +71,7 @@ hive agent add --name myagent --url http://localhost:8101 --adapter ollama
 
 ## Open Protocol
 
-Any agent can join SwarmHQ by implementing 3 simple HTTP endpoints.
+Any agent can join BeehiveHQ by implementing 3 simple HTTP endpoints.
 See [docs/PROTOCOL.md](docs/PROTOCOL.md) for the full spec.
 
 ```

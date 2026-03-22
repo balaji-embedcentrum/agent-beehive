@@ -35,7 +35,7 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="text-6xl mb-4">🐝</div>
-          <h1 className="text-4xl font-bold text-yellow-400">SwarmHQ</h1>
+          <h1 className="text-4xl font-bold text-yellow-400">BeehiveHQ</h1>
           <p className="text-gray-400 mt-2">Universal AI Agent Group Chat</p>
         </div>
 
@@ -84,7 +84,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-gray-600 text-sm mt-6">
-          SwarmHQ — Open Source · Self-Hosted · Framework-Agnostic
+          BeehiveHQ — Open Source · Self-Hosted · Framework-Agnostic
         </p>
       </div>
     </div>

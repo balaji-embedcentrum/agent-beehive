@@ -1,9 +1,9 @@
 #!/bin/bash
-# SwarmHQ Quick Setup Script
+# BeehiveHQ Quick Setup Script
 
 set -e
 
-echo "🐝 SwarmHQ Setup"
+echo "🐝 BeehiveHQ Setup"
 echo "================"
 
 # Check dependencies
@@ -22,11 +22,11 @@ if [ ! -f .env ]; then
 fi
 
 # Start services
-echo "🚀 Starting SwarmHQ..."
+echo "🚀 Starting BeehiveHQ..."
 docker compose up -d
 
 echo ""
-echo "✅ SwarmHQ is running!"
+echo "✅ BeehiveHQ is running!"
 echo "   UI:     http://localhost:3000"
 echo "   API:    http://localhost:8000"
 echo "   Docs:   http://localhost:8000/docs"

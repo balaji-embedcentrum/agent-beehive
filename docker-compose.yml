@@ -2,16 +2,16 @@ services:
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-swarmhq}
+      POSTGRES_USER: ${POSTGRES_USER:-agent-beehive}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
-      POSTGRES_DB: ${POSTGRES_DB:-swarmhq}
+      POSTGRES_DB: ${POSTGRES_DB:-agent-beehive}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./server/db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-swarmhq}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-agent-beehive}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -34,7 +34,7 @@ services:
     build: ./server
     env_file: .env
     environment:
-      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-swarmhq}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-swarmhq}
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-agent-beehive}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-agent-beehive}
       REDIS_URL: redis://redis:6379
     ports:
       - "8000:8000"

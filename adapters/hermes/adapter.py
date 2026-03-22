@@ -1,6 +1,6 @@
 """
-SwarmHQ Hermes Adapter
-Wraps a Hermes agent (claude-code) and exposes the SwarmHQ protocol.
+BeehiveHQ Hermes Adapter
+Wraps a Hermes agent (claude-code) and exposes the BeehiveHQ protocol.
 Hermes is run as a subprocess; messages sent via stdin, replies from stdout.
 """
 import os
@@ -11,7 +11,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
 
-app = FastAPI(title="SwarmHQ Hermes Adapter")
+app = FastAPI(title="BeehiveHQ Hermes Adapter")
 
 AGENT_NAME = os.getenv("AGENT_NAME", "hermes-agent")
 DISPLAY_NAME = os.getenv("DISPLAY_NAME", "Hermes Agent")

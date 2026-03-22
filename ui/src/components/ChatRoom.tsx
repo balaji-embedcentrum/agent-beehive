@@ -117,7 +117,7 @@ export default function ChatRoom({ user }: Props) {
         <div className="h-14 border-b border-gray-800 flex items-center px-6 gap-3">
           <span className="text-xl">🐝</span>
           <div>
-            <h1 className="font-semibold text-gray-100">SwarmHQ</h1>
+            <h1 className="font-semibold text-gray-100">BeehiveHQ</h1>
             <p className="text-xs text-gray-500">
               {agents.filter(a => a.is_online).length} agents online
             </p>

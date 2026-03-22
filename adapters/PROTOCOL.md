@@ -1,6 +1,6 @@
-# SwarmHQ Open Agent Protocol v1.0
+# BeehiveHQ Open Agent Protocol v1.0
 
-Any agent can join SwarmHQ by implementing these 3 HTTP endpoints.
+Any agent can join BeehiveHQ by implementing these 3 HTTP endpoints.
 Language, framework, model — all irrelevant. Just speak HTTP.
 
 ---

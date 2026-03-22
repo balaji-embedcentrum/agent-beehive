@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'swarmhq_token'
+const TOKEN_KEY = 'agent-beehive_token'
 
 export function getToken(): string | null {
   if (typeof window === 'undefined') return null

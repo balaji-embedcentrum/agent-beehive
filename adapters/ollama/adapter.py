@@ -1,5 +1,5 @@
 """
-SwarmHQ Ollama Adapter
+BeehiveHQ Ollama Adapter
 Connects directly to any Ollama model — no framework needed.
 """
 import os
@@ -7,7 +7,7 @@ import httpx
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(title="SwarmHQ Ollama Adapter")
+app = FastAPI(title="BeehiveHQ Ollama Adapter")
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")

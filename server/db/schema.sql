@@ -1,4 +1,4 @@
--- SwarmHQ Database Schema
+-- BeehiveHQ Database Schema
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 

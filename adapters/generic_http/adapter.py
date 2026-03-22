@@ -1,6 +1,6 @@
 """
-SwarmHQ Generic HTTP Adapter
-Proxies any existing HTTP endpoint that already speaks the SwarmHQ protocol.
+BeehiveHQ Generic HTTP Adapter
+Proxies any existing HTTP endpoint that already speaks the BeehiveHQ protocol.
 Use this as a passthrough if your agent already implements /chat and /health.
 """
 import os
@@ -8,7 +8,7 @@ import httpx
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 
-app = FastAPI(title="SwarmHQ Generic HTTP Adapter")
+app = FastAPI(title="BeehiveHQ Generic HTTP Adapter")
 
 TARGET_URL = os.getenv("TARGET_URL", "http://localhost:9000")
 AGENT_NAME = os.getenv("AGENT_NAME", "generic-agent")

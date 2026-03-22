@@ -1,4 +1,4 @@
-"""SwarmHQ Server — Universal AI Agent Group Chat Platform"""
+"""BeehiveHQ Server — Universal AI Agent Group Chat Platform"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -41,7 +41,7 @@ async def ensure_admin_user(pool):
 
 
 app = FastAPI(
-    title="SwarmHQ",
+    title="BeehiveHQ",
     description="Universal AI Agent Group Chat Platform",
     version="0.1.0",
     lifespan=lifespan,
@@ -67,7 +67,7 @@ app.include_router(ws.router)
 @app.get("/")
 async def root():
     return {
-        "name": "SwarmHQ",
+        "name": "BeehiveHQ",
         "version": "0.1.0",
         "status": "running",
         "docs": "/docs",

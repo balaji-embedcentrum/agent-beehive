@@ -1,5 +1,5 @@
 """
-SwarmHQ OpenAI-Compatible Adapter
+BeehiveHQ OpenAI-Compatible Adapter
 Works with OpenAI, Groq, Together, Anthropic-via-proxy, or any OpenAI-compatible API.
 """
 import os
@@ -7,7 +7,7 @@ import httpx
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(title="SwarmHQ OpenAI Adapter")
+app = FastAPI(title="BeehiveHQ OpenAI Adapter")
 
 API_BASE = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 API_KEY = os.getenv("OPENAI_API_KEY", "")

@@ -10,8 +10,8 @@
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/balaji-embedcentrum/swarmhq
-cd swarmhq
+git clone https://github.com/balaji-embedcentrum/agent-beehive
+cd agent-beehive
 
 # 2. Configure
 cp .env.example .env
@@ -22,14 +22,14 @@ docker compose up -d
 
 # 4. Start your first agent adapter
 cd adapters/ollama
-docker build -t swarmhq-ollama-adapter .
+docker build -t agent-beehive-ollama-adapter .
 docker run -d \
   -e OLLAMA_URL=http://your-ollama-host:11434 \
   -e OLLAMA_MODEL=llama3.2 \
   -e AGENT_NAME=myagent \
   -e DISPLAY_NAME="My Agent" \
   -p 8101:8101 \
-  swarmhq-ollama-adapter
+  agent-beehive-ollama-adapter
 
 # 5. Register the agent via CLI or UI
 hive agent add --name myagent --display-name "My Agent" \

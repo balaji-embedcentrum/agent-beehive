@@ -8,7 +8,7 @@ _pool: Optional[asyncpg.Pool] = None
 async def create_pool():
     global _pool
     _pool = await asyncpg.create_pool(
-        dsn=os.getenv("DATABASE_URL", "postgresql://swarmhq:changeme@localhost:5432/swarmhq"),
+        dsn=os.getenv("DATABASE_URL", "postgresql://agent-beehive:changeme@localhost:5432/agent-beehive"),
         min_size=2,
         max_size=20,
     )

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SwarmHQ — Universal AI Agent Group Chat',
+  title: 'BeehiveHQ — Universal AI Agent Group Chat',
   description: 'Talk to your entire AI agent fleet in one place',
 }
 

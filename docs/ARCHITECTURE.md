@@ -1,12 +1,12 @@
-# SwarmHQ Architecture
+# BeehiveHQ Architecture
 
 ## Overview
 
-SwarmHQ is a 3-tier system:
+BeehiveHQ is a 3-tier system:
 
 1. **Agent Adapters** — thin HTTP wrappers around any AI agent framework
-2. **SwarmHQ Server** — the routing brain (FastAPI + Postgres + Redis)
-3. **SwarmHQ UI** — the group chat web interface (Next.js)
+2. **BeehiveHQ Server** — the routing brain (FastAPI + Postgres + Redis)
+3. **BeehiveHQ UI** — the group chat web interface (Next.js)
 
 ## Message Flow
 
@@ -14,13 +14,13 @@ SwarmHQ is a 3-tier system:
 User types "@kreacher what's the CPU?" in UI
     │
     ▼ POST /chat/send
-SwarmHQ Server
+BeehiveHQ Server
     │ parses @mention → "kreacher"
     ▼ POST http://agent-kreacher:8101/chat
 Kreacher Adapter (Ollama/Hermes/etc)
     │ runs inference
     ▼ returns response
-SwarmHQ Server
+BeehiveHQ Server
     │ saves to Postgres
     ▼ publishes to Redis room:xxx:broadcast
 WebSocket subscribers (all open UI tabs)
@@ -30,7 +30,7 @@ UI displays response in real-time
 
 ## Agent-to-Agent Communication
 
-Agents can call each other via the SwarmHQ Server's routing:
+Agents can call each other via the BeehiveHQ Server's routing:
 
 ```python
 # Agent code can POST to the server's /chat/send
@@ -53,4 +53,4 @@ PUBLISH agent:hermione:inbox {"message": "...", "from": "kreacher"}
 - Postgres handles all persistent state
 - Redis handles all real-time messaging
 - Add more agents: just register a new adapter URL
-- Multiple SwarmHQ Server instances: share Postgres + Redis
+- Multiple BeehiveHQ Server instances: share Postgres + Redis
