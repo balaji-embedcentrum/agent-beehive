@@ -25,13 +25,12 @@ async def lifespan(app: FastAPI):
 
 async def ensure_admin_user(pool):
     """Create admin user on first run if not exists."""
-    from passlib.context import CryptContext
-    pwd = CryptContext(schemes=["bcrypt"], deprecated="auto")
+    import bcrypt as _bcrypt
     username = os.getenv("ADMIN_USERNAME", "admin")
     password = os.getenv("ADMIN_PASSWORD", "changeme")
     exists = await pool.fetchval("SELECT id FROM users WHERE username=$1", username)
     if not exists:
-        hashed = pwd.hash(password)
+        hashed = _bcrypt.hashpw(password.encode(), _bcrypt.gensalt()).decode()
         await pool.execute(
             """INSERT INTO users (username, hashed_password, is_admin)
                VALUES ($1, $2, TRUE) ON CONFLICT DO NOTHING""",

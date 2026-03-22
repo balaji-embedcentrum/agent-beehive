@@ -7,11 +7,10 @@ _pool: Optional[asyncpg.Pool] = None
 
 async def create_pool():
     global _pool
-    _pool = await asyncpg.create_pool(
-        dsn=os.getenv("DATABASE_URL", "postgresql://agent-beehive:changeme@localhost:5432/agent-beehive"),
-        min_size=2,
-        max_size=20,
-    )
+    dsn = os.getenv("DATABASE_URL", "postgresql://beehive:beehive_secure_2026@postgres:5432/beehive")
+    # Strip SQLAlchemy prefix if present
+    dsn = dsn.replace("postgresql+asyncpg://", "postgresql://")
+    _pool = await asyncpg.create_pool(dsn=dsn, min_size=2, max_size=20)
     return _pool
 
 

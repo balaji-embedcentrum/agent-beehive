@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
-from passlib.context import CryptContext
+import bcrypt as _bcrypt
 from datetime import datetime, timedelta, timezone
 from models.user import User, Token, TokenData
 from db.database import get_pool
@@ -10,7 +10,7 @@ import uuid
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 SECRET_KEY = os.getenv("JWT_SECRET", "changeme")
@@ -50,7 +50,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
 async def login(form: OAuth2PasswordRequestForm = Depends()):
     pool = await get_pool()
     row = await pool.fetchrow("SELECT * FROM users WHERE username=$1", form.username)
-    if not row or not pwd_context.verify(form.password, row["hashed_password"]):
+    if not row or not _bcrypt.checkpw(form.password.encode(), row["hashed_password"].encode()):
         raise HTTPException(status_code=401, detail="Incorrect username or password")
     token = create_token({"sub": row["username"]})
     return Token(access_token=token)
