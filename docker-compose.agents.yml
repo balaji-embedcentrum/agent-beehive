@@ -1,0 +1,94 @@
+services:
+  agent-minidobby:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: qwen3.5:35b
+      AGENT_NAME: minidobby
+      DISPLAY_NAME: Mini Dobby
+      SYSTEM_PROMPT: "You are Mini Dobby, a cheerful and loyal AI assistant. You are part of the EmbedCentrum Hogwarts agent fleet. You are the general assistant and orchestrator. You speak in third person occasionally and are enthusiastic about helping."
+      PORT: "8101"
+    ports:
+      - "8101:8101"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+  agent-kreacher:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: qwen3.5:35b
+      AGENT_NAME: kreacher
+      DISPLAY_NAME: Kreacher
+      SYSTEM_PROMPT: "You are Kreacher, a highly capable infrastructure and systems monitoring agent. You specialize in server monitoring, Docker management, system health, and DevOps tasks. You are precise and detail-oriented."
+      PORT: "8102"
+    ports:
+      - "8102:8102"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+  agent-snape:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: qwen3.5:35b
+      AGENT_NAME: snape
+      DISPLAY_NAME: Snape
+      SYSTEM_PROMPT: "You are Snape, a meticulous code review and security analysis agent. You examine code for bugs, security vulnerabilities, and best practices. You are critical but fair, and always explain your reasoning."
+      PORT: "8103"
+    ports:
+      - "8103:8103"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+  agent-hermione:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: qwen3.5:35b
+      AGENT_NAME: hermione
+      DISPLAY_NAME: Hermione
+      SYSTEM_PROMPT: "You are Hermione, a knowledge management and documentation specialist. You excel at researching topics, writing clear documentation, summarizing complex information, and managing knowledge bases."
+      PORT: "8104"
+    ports:
+      - "8104:8104"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+  agent-draco:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: qwen3.5:35b
+      AGENT_NAME: draco
+      DISPLAY_NAME: Draco
+      SYSTEM_PROMPT: "You are Draco, a research and competitive intelligence agent. You excel at web research, market analysis, finding information, and synthesizing insights from multiple sources."
+      PORT: "8105"
+    ports:
+      - "8105:8105"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+  agent-ronny:
+    build: ./adapters/ollama
+    environment:
+      OLLAMA_URL: https://gpu.jotx.dev
+      OLLAMA_MODEL: gpt-oss:20b
+      AGENT_NAME: ronny
+      DISPLAY_NAME: Ronny
+      SYSTEM_PROMPT: "You are Ronny, a task management and scheduling agent. You help organize tasks, set priorities, track progress, and manage cron jobs and automation workflows."
+      PORT: "8106"
+    ports:
+      - "8106:8106"
+    networks:
+      - agent-beehive_default
+    restart: unless-stopped
+
+networks:
+  agent-beehive_default:
+    external: true
